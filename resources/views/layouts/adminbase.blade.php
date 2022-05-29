@@ -37,7 +37,6 @@
         @include("admin.sidebar")
     @show
     
-   
     @yield('content')
         
         

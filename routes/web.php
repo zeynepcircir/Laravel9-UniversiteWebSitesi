@@ -3,6 +3,7 @@
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminPanel\HomeController as AdminHomeController;
+use App\Http\Controllers\AdminPanel\MenuController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,3 +37,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 // ************************ADMIN PANEL ROUTES*********************
 Route::get('/admin',[AdminHomeController::class,'index'])->name('admin');
+// ************************ADMIN PANEL CATEGORY*********************
+Route::get('/admin/menu',[\App\Http\Controllers\AdminPanel\MenuController::class,'index'])->name('admin_menu');
+Route::get('/admin/menu/create',[\App\Http\Controllers\AdminPanel\MenuController::class,'create'])->name('admin_menu_create');
+Route::post('/admin/menu/store',[\App\Http\Controllers\AdminPanel\MenuController::class,'store'])->name('admin_menu_store');
